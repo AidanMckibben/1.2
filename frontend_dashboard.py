@@ -372,9 +372,10 @@ elif st.session_state["page"] == "Summary":
     from archetype_pick import select_building_output
 
     if st.button(label="Calculate Energy Savings", disabled=not all_filled):
+        # taking the list of user inputs and making it a dictionary
         user_input_dict = dict(summary_data[:5])
         st.write(user_input_dict)
-        st.write(select_building_output(user_input_dict, 'building_combinations.csv'))
+        st.write(select_building_output(user_input_dict, "building_combinations.csv"))
 
-    
+    # can debug here
     # st.write(st.session_state)
