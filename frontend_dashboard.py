@@ -369,28 +369,12 @@ elif st.session_state["page"] == "Summary":
     )
 
 # managing the energy model dataset
-    from building_combinations import generate_building_combinations
+    from archetype_pick import select_building_output
 
     if st.button(label="Calculate Energy Savings", disabled=not all_filled):
-        energy_model_df = generate_building_combinations()
+        user_input_dict = dict(summary_data[:5])
+        st.write(user_input_dict)
+        st.write(select_building_output(user_input_dict, 'building_combinations.csv'))
 
-        # taking the list of user inputs and making it a dictionary
-        user_input_dict = dict(summary_data)
-
-        # filter the dictionary of user inputs and select the data from the energy_model_df
-        filtered_df = energy_model_df
-        for col, val in user_input_dict.items():
-            st.write(f"Filtering: {col} == {val}")
-            st.write(f"Possible values: {energy_model_df[col].unique()}")
-            filtered_df = filtered_df[filtered_df[col] == val]
-
-        if not filtered_df.empty:
-            data_set_value = filtered_df.iloc[0]['Data Set']
-            st.write("Resulting Data Set:", data_set_value)
-        else:
-            st.write("No matching data set found.")
-   
-            st.write(user_input_dict)
-            st.write(filtered_df)
-    # can debug here
+    
     # st.write(st.session_state)

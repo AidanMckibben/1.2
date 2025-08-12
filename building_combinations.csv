@@ -1,0 +1,49 @@
+﻿Building Type,Building Structure,Window-to-Wall-Ratio,Heating System,DHW System,Archetype Model
+Townhouses,Wood Frame,Low (<20%),Electric baseboards,Electric,Alderbrae
+Townhouses,Wood Frame,Low (<20%),Electric baseboards,Natural Gas,Beatrice
+Townhouses,Wood Frame,Low (<20%),Natural Gas Baseboards,Electric,Alderbrae adj
+Townhouses,Wood Frame,Low (<20%),Natural Gas Baseboards,Natural Gas,Beatrice adj
+Townhouses,Wood Frame,Medium (20%<x<30%),Electric baseboards,Electric,Alderbrae
+Townhouses,Wood Frame,Medium (20%<x<30%),Electric baseboards,Natural Gas,Beatrice
+Townhouses,Wood Frame,Medium (20%<x<30%),Natural Gas Baseboards,Electric,Alderbrae adj
+Townhouses,Wood Frame,Medium (20%<x<30%),Natural Gas Baseboards,Natural Gas,Beatrice adj
+Townhouses,Wood Frame,High (>30%),Electric baseboards,Electric,not a feasible archetype
+Townhouses,Wood Frame,High (>30%),Electric baseboards,Natural Gas,not a feasible archetype
+Townhouses,Wood Frame,High (>30%),Natural Gas Baseboards,Electric,not a feasible archetype
+Townhouses,Wood Frame,High (>30%),Natural Gas Baseboards,Natural Gas,not a feasible archetype
+Up to 6 stories,Concrete,Low (<20%),Electric baseboards,Electric,not a feasible archetype
+Up to 6 stories,Concrete,Low (<20%),Electric baseboards,Natural Gas,not a feasible archetype
+Up to 6 stories,Concrete,Low (<20%),Natural Gas Baseboards,Electric,not a feasible archetype
+Up to 6 stories,Concrete,Low (<20%),Natural Gas Baseboards,Natural Gas,not a feasible archetype
+Up to 6 stories,Concrete,Medium (20%<x<30%),Electric baseboards,Electric,not a feasible archetype
+Up to 6 stories,Concrete,Medium (20%<x<30%),Electric baseboards,Natural Gas,not a feasible archetype
+Up to 6 stories,Concrete,Medium (20%<x<30%),Natural Gas Baseboards,Electric,not a feasible archetype
+Up to 6 stories,Concrete,Medium (20%<x<30%),Natural Gas Baseboards,Natural Gas,not a feasible archetype
+Up to 6 stories,Concrete,High (>30%),Electric baseboards,Electric,not a feasible archetype
+Up to 6 stories,Concrete,High (>30%),Electric baseboards,Natural Gas,not a feasible archetype
+Up to 6 stories,Concrete,High (>30%),Natural Gas Baseboards,Electric,not a feasible archetype
+Up to 6 stories,Concrete,High (>30%),Natural Gas Baseboards,Natural Gas,not a feasible archetype
+Up to 6 stories,Wood Frame,Low (<20%),Electric baseboards,Electric,Victorian
+Up to 6 stories,Wood Frame,Low (<20%),Electric baseboards,Natural Gas,Victorian adj
+Up to 6 stories,Wood Frame,Low (<20%),Natural Gas Baseboards,Electric,Fraser Gardens adj
+Up to 6 stories,Wood Frame,Low (<20%),Natural Gas Baseboards,Natural Gas,Fraser Gardens
+Up to 6 stories,Wood Frame,Medium (20%<x<30%),Electric baseboards,Electric,Victorian
+Up to 6 stories,Wood Frame,Medium (20%<x<30%),Electric baseboards,Natural Gas,Victorian adj
+Up to 6 stories,Wood Frame,Medium (20%<x<30%),Natural Gas Baseboards,Electric,Fraser Gardens adj
+Up to 6 stories,Wood Frame,Medium (20%<x<30%),Natural Gas Baseboards,Natural Gas,Fraser Gardens
+Up to 6 stories,Wood Frame,High (>30%),Electric baseboards,Electric,815 5th Ave adj1
+Up to 6 stories,Wood Frame,High (>30%),Electric baseboards,Natural Gas,815 5th Ave adj2
+Up to 6 stories,Wood Frame,High (>30%),Natural Gas Baseboards,Electric,815 5th Ave adj3
+Up to 6 stories,Wood Frame,High (>30%),Natural Gas Baseboards,Natural Gas,815 5th Ave
+More than 6 stories,Concrete,Low (<20%),Electric baseboards,Electric,Brookland adj2
+More than 6 stories,Concrete,Low (<20%),Electric baseboards,Natural Gas,Brookland adj
+More than 6 stories,Concrete,Low (<20%),Natural Gas Baseboards,Electric,Brookland adj3
+More than 6 stories,Concrete,Low (<20%),Natural Gas Baseboards,Natural Gas,Brookland Court
+More than 6 stories,Concrete,Medium (20%<x<30%),Electric baseboards,Electric,Sitkum
+More than 6 stories,Concrete,Medium (20%<x<30%),Electric baseboards,Natural Gas,Sitkum adj
+More than 6 stories,Concrete,Medium (20%<x<30%),Natural Gas Baseboards,Electric,Sitkum adj2
+More than 6 stories,Concrete,Medium (20%<x<30%),Natural Gas Baseboards,Natural Gas,Sitkum adj3
+More than 6 stories,Concrete,High (>30%),Electric baseboards,Electric,Barafield adj2
+More than 6 stories,Concrete,High (>30%),Electric baseboards,Natural Gas,Barafield adj3
+More than 6 stories,Concrete,High (>30%),Natural Gas Baseboards,Electric,Barafield adj
+More than 6 stories,Concrete,High (>30%),Natural Gas Baseboards,Natural Gas,Barafield
