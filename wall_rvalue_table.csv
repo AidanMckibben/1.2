@@ -1,0 +1,25 @@
+﻿Thermal Bridging Performance,Walls,Wall Exterior Insulation,R-Value
+High TB,2x4 Wood Frame Walls,No ext. ins.,10
+High TB,2x4 Wood Frame Walls,"3"" ext. ins",14
+High TB,2x4 Wood Frame Walls,"5"" ext. ins",18
+High TB,2x4 Wood Frame Walls,"8"" ext ins",24
+High TB,2x6 Wood Frame Walls,No ext. ins.,12
+High TB,2x6 Wood Frame Walls,"3"" ext. ins",18
+High TB,2x6 Wood Frame Walls,"5"" ext. ins",22
+High TB,2x6 Wood Frame Walls,"8"" ext ins",26
+Average TB,2x4 Wood Frame Walls,No ext. ins.,10
+Average TB,2x4 Wood Frame Walls,"3"" ext. ins",18
+Average TB,2x4 Wood Frame Walls,"5"" ext. ins",22
+Average TB,2x4 Wood Frame Walls,"8"" ext ins",unlikely
+Average TB,2x6 Wood Frame Walls,No ext. ins.,14
+Average TB,2x6 Wood Frame Walls,"3"" ext. ins",22
+Average TB,2x6 Wood Frame Walls,"5"" ext. ins",26
+Average TB,2x6 Wood Frame Walls,"8"" ext ins",unlikely
+Low TB,2x4 Wood Frame Walls,No ext. ins.,12
+Low TB,2x4 Wood Frame Walls,"3"" ext. ins",20
+Low TB,2x4 Wood Frame Walls,"5"" ext. ins",26
+Low TB,2x4 Wood Frame Walls,"8"" ext ins",unlikely
+Low TB,2x6 Wood Frame Walls,No ext. ins.,unlikely
+Low TB,2x6 Wood Frame Walls,"3"" ext. ins",26
+Low TB,2x6 Wood Frame Walls,"5"" ext. ins",unlikely
+Low TB,2x6 Wood Frame Walls,"8"" ext ins",unlikely

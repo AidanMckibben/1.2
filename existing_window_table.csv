@@ -1,0 +1,21 @@
+﻿Frame Type,Airspace,Glazing,Window Code,Door Code
+"Aluminum, no thermal break",n/a,Single Glazing,Exist1,Edoor1
+"Aluminum, no thermal break","1/4""",Double Glazing (no low-e coating),Exist2,Edoor2
+"Aluminum, no thermal break","1/4""","Double Glazing (low-e coating, e=0.1)",Exist3,Edoor3
+"Aluminum, no thermal break","1/8""",Double Glazing (no low-e coating),Exist4,Edoor4
+"Aluminum, no thermal break","1/8""","Double Glazing (low-e coating, e=0.1)",Exist5,Edoor5
+"Aluminum, thermal break",n/a,Single Glazing,Exist11,Edoor6
+"Aluminum, thermal break","1/4""",Double Glazing (no low-e coating),Exist12,Edoor7
+"Aluminum, thermal break","1/4""","Double Glazing (low-e coating, e=0.1)",Exist13,Edoor8
+"Aluminum, thermal break","1/8""",Double Glazing (no low-e coating),Exist14,Edoor9
+"Aluminum, thermal break","1/8""","Double Glazing (low-e coating, e=0.1)",Exist15,Edoor10
+Wood,n/a,Single Glazing,Exist21,Edoor11
+Wood,"1/4""",Double Glazing (no low-e coating),Exist22,Edoor12
+Wood,"1/4""","Double Glazing (low-e coating, e=0.1)",Exist23,Edoor13
+Wood,"1/8""",Double Glazing (no low-e coating),Exist24,Edoor14
+Wood,"1/8""","Double Glazing (low-e coating, e=0.1)",Exist25,Edoor15
+Vinyl,n/a,Single Glazing,Exist31,Edoor16
+Vinyl,"1/4""",Double Glazing (no low-e coating),Exist32,Edoor17
+Vinyl,"1/4""","Double Glazing (low-e coating, e=0.1)",Exist33,Edoor18
+Vinyl,"1/8""",Double Glazing (no low-e coating),Exist34,Edoor19
+Vinyl,"1/8""","Double Glazing (low-e coating, e=0.1)",Exist35,Edoor20
