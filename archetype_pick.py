@@ -20,7 +20,7 @@ def select_building_output(user_input, lookup_table_path):
     mask = (
         (lookup['Building Type'] == user_input['Building Type']) &
         (lookup['Building Structure'] == user_input['Building Structure']) &
-        (lookup['WWR'] == user_input['WWR']) &
+        (lookup['Window-to-Wall-Ratio'] == user_input['Window-to-Wall-Ratio']) &
         (lookup['Heating System'] == user_input['Heating System']) &
         (lookup['DHW System'] == user_input['DHW System'])
     )

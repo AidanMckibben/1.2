@@ -376,5 +376,5 @@ elif st.session_state["page"] == "Summary":
         st.write(user_input_archetype_dict)
         st.write(select_building_output(user_input_archetype_dict, 'building_combinations.csv'))
 
-    
+    # can debug here
     # st.write(st.session_state)
