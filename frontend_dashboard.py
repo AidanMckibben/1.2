@@ -196,7 +196,7 @@ elif st.session_state["page"] == "Assembly Info":
 
     # Render select boxes for each dropdown
     window_door_frame = st.selectbox(
-        "Window / Door Frame",
+        "Frame Type",
         window_door_frame_options,
         index=window_door_frame_options.index(get_dropdown_value("window_door_frame", window_door_frame_options)),
         key="window_door_frame_selectbox"
@@ -204,7 +204,7 @@ elif st.session_state["page"] == "Assembly Info":
     st.session_state["window_door_frame"] = window_door_frame
 
     window_glazing = st.selectbox(
-        "Window Glazing",
+        "Glazing",
         assembly_window_glazing_options,
         index=assembly_window_glazing_options.index(get_dropdown_value("window_glazing", assembly_window_glazing_options)),
     key="window_glazing_selectbox"
@@ -274,7 +274,7 @@ elif st.session_state["page"] == "Retrofit Info":
 
     # Render each dropdown
     window_frame = st.selectbox(
-        "Window / Door Frame",
+        "Frame Type",
         window_frame_options,
         index=window_frame_options.index(get_dropdown_value("retrofit_window_frame", window_frame_options)),
         key="retrofit_window_frame_selectbox"
@@ -282,7 +282,7 @@ elif st.session_state["page"] == "Retrofit Info":
     st.session_state["retrofit_window_frame"] = window_frame
     
     window_glazing = st.selectbox(
-        "Window Glazing",
+        "Glazing",
         window_glazing_options,
         index=window_glazing_options.index(get_dropdown_value("retrofit_window_glazing", window_glazing_options)),
         key="retrofit_window_glazing_selectbox"
@@ -317,8 +317,8 @@ elif st.session_state["page"] == "Summary":
         ["DHW System", st.session_state.get("dhw_system", "")],
         ["Window-to-Wall-Ratio", st.session_state.get("window_to_wall_ratio", "")],
         ["Walls", st.session_state.get("assembly_walls", "")],
-        ["Window / Door Frame", st.session_state.get("window_door_frame", "")],
-        ["Window Glazing", st.session_state.get("window_glazing", "")],
+        ["Frame Type", st.session_state.get("window_door_frame", "")],
+        ["Glazing", st.session_state.get("window_glazing", "")],
         ["Glazing Cavity", st.session_state.get("glazing_cavity", "")],
         ["Thermal Bridging", st.session_state.get("thermal_bridging", "")],
         ["Airtightness", st.session_state.get("airtightness", "")],

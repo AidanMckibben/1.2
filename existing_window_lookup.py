@@ -8,7 +8,7 @@ class ExistingWindowLookup:
         """
         self.df = pd.read_csv(csv_path, dtype=str)
         # Strip whitespace from all string columns
-        for col in ['Frame Type', 'Airspace', 'Glazing', 'Window Code', 'Door Code']:
+        for col in ['Frame Type', 'Glazing Cavity', 'Glazing', 'Window Code', 'Door Code']:
             self.df[col] = self.df[col].astype(str).str.strip()
 
     def get_window_code(self, user_inputs: Dict[str, str]) -> Optional[str]:
@@ -18,12 +18,12 @@ class ExistingWindowLookup:
         Returns None if no match is found.
         """
         frame_type = user_inputs.get('Frame Type', '').strip()
-        airspace = user_inputs.get('Airspace', '').strip()
+        airspace = user_inputs.get('Glazing Cavity', '').strip()
         glazing = user_inputs.get('Glazing', '').strip()
 
         matches = self.df[
             (self.df['Frame Type'] == frame_type) &
-            (self.df['Airspace'] == airspace) &
+            (self.df['Glazing Cavity'] == airspace) &
             (self.df['Glazing'] == glazing)
         ]
 
@@ -38,12 +38,12 @@ class ExistingWindowLookup:
             Returns None if no match is found.
             """
             frame_type = user_inputs.get('Frame Type', '').strip()
-            airspace = user_inputs.get('Airspace', '').strip()
+            airspace = user_inputs.get('Glazing Cavity', '').strip()
             glazing = user_inputs.get('Glazing', '').strip()
 
             matches = self.df[
                 (self.df['Frame Type'] == frame_type) &
-                (self.df['Airspace'] == airspace) &
+                (self.df['Glazing Cavity'] == airspace) &
                 (self.df['Glazing'] == glazing)
             ]
 
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     lookup = ExistingWindowLookup("existing_window_table.csv")
     user_inputs = {
         "Frame Type": "Vinyl",
-        "Airspace": "1/8",
+        "Glazing Cavity": "1/8",
         "Glazing": "Double Glazing (no low-e coating)"
     }
 

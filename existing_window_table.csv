@@ -1,4 +1,4 @@
-﻿Frame Type,Airspace,Glazing,Window Code,Door Code
+﻿Frame Type,Glazing Cavity,Glazing,Window Code,Door Code
 "Aluminum, no thermal break",n/a,Single Glazing,Exist1,Edoor1
 "Aluminum, no thermal break", 1/4,Double Glazing (no low-e coating),Exist2,Edoor2
 "Aluminum, no thermal break", 1/4,"Double Glazing (low-e coating, e=0.1)",Exist3,Edoor3
