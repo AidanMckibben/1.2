@@ -12,7 +12,7 @@ class PreviousWallRValueLookup:
         for col in ['Thermal Bridging Performance', 'Walls', 'Wall Exterior Insulation', 'R-Value']:
             self.df[col] = self.df[col].astype(str).str.strip()
 
-    def get_r_value(self, user_inputs: Dict[str, str]) -> Optional[str]:
+    def get_rvalue(self, user_inputs: Dict[str, str]) -> Optional[str]:
         """
         Looks up the R-Value based on user input dictionary.
         Keys should include 'Thermal Bridging Performance', 'Walls', 'Wall Exterior Insulation'.
@@ -20,8 +20,8 @@ class PreviousWallRValueLookup:
         """
         tb_perf = user_inputs.get('Thermal Bridging Performance', '').strip()
         walls = user_inputs.get('Walls', '').strip()
-        # for the previous runs, we never have an insulation upgrade
-        ext_ins = "No ext. ins."
+        # for the previous runs, we never have an insulation upgrade. Thus, we will only take options with no exterior insulation
+        ext_ins = "No ext. ins"
 
         matches = self.df[
             (self.df['Thermal Bridging Performance'] == tb_perf) &
@@ -38,10 +38,10 @@ if __name__ == "__main__":
     user_inputs = {
         "Thermal Bridging Performance": "High TB",
         "Walls": "2x4 Wood Frame Walls",
-        "Wall Exterior Insulation": "3 in. ext. ins"
+        "Wall Exterior Insulation": "8 in. ext. ins"
     }
 
-    r_value = lookup.get_r_value(user_inputs)
+    r_value = lookup.get_rvalue(user_inputs)
     print(r_value)
 
 # Example usage:
