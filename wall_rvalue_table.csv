@@ -1,25 +1,25 @@
 ﻿Thermal Bridging Performance,Walls,Wall Exterior Insulation,R-Value
-High TB,2x4 Wood Frame Walls,No ext. ins.,10
+High TB,2x4 Wood Frame Walls,No ext. ins,10
 High TB,2x4 Wood Frame Walls,3 in. ext. ins,14
 High TB,2x4 Wood Frame Walls,5 in. ext. ins,18
 High TB,2x4 Wood Frame Walls,8 in. ext ins,24
-High TB,2x6 Wood Frame Walls,No ext. ins.,12
+High TB,2x6 Wood Frame Walls,No ext. ins,12
 High TB,2x6 Wood Frame Walls,3 in. ext. ins,18
 High TB,2x6 Wood Frame Walls,5 in. ext. ins,22
 High TB,2x6 Wood Frame Walls,8 in. ext ins,26
-Average TB,2x4 Wood Frame Walls,No ext. ins.,10
+Average TB,2x4 Wood Frame Walls,No ext. ins,10
 Average TB,2x4 Wood Frame Walls,3 in. ext. ins,18
 Average TB,2x4 Wood Frame Walls,5 in. ext. ins,22
 Average TB,2x4 Wood Frame Walls,8 in. ext ins,unlikely
-Average TB,2x6 Wood Frame Walls,No ext. ins.,14
+Average TB,2x6 Wood Frame Walls,No ext. ins,14
 Average TB,2x6 Wood Frame Walls,3 in. ext. ins,22
 Average TB,2x6 Wood Frame Walls,5 in. ext. ins,26
 Average TB,2x6 Wood Frame Walls,8 in. ext ins,unlikely
-Bad TB,2x4 Wood Frame Walls,No ext. ins.,12
-Bad TB,2x4 Wood Frame Walls,3 in. ext. ins,20
-Bad TB,2x4 Wood Frame Walls,5 in. ext. ins,26
-Bad TB,2x4 Wood Frame Walls,8 in. ext ins,unlikely
-Bad TB,2x6 Wood Frame Walls,No ext. ins.,unlikely
-Bad TB,2x6 Wood Frame Walls,3 in. ext. ins,26
-Bad TB,2x6 Wood Frame Walls,5 in. ext. ins,unlikely
-Bad TB,2x6 Wood Frame Walls,8 in. ext ins,unlikely
+Low TB,2x4 Wood Frame Walls,No ext. ins,12
+Low TB,2x4 Wood Frame Walls,3 in. ext. ins,20
+Low TB,2x4 Wood Frame Walls,5 in. ext. ins,26
+Low TB,2x4 Wood Frame Walls,8 in. ext ins,unlikely
+Low TB,2x6 Wood Frame Walls,No ext. ins,unlikely
+Low TB,2x6 Wood Frame Walls,3 in. ext. ins,26
+Low TB,2x6 Wood Frame Walls,5 in. ext. ins,unlikely
+Low TB,2x6 Wood Frame Walls,8 in. ext ins,unlikely
