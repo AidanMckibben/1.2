@@ -371,10 +371,11 @@ elif st.session_state["page"] == "Summary":
 # managing the energy model dataset
     from archetype_pick import select_building_output
 
-    if st.button(label="Calculate Energy Savings", disabled=not all_filled):
+    if st.button(label="Calculate Energy Savings"):
         user_input_archetype_dict = dict(summary_data[:5])
         st.write(user_input_archetype_dict)
         st.write(select_building_output(user_input_archetype_dict, 'building_combinations.csv'))
+
 
     # can debug here
     # st.write(st.session_state)

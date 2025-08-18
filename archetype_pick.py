@@ -37,8 +37,8 @@ if __name__ == "__main__":
     input_1 = {
         'Building Type': 'Townhouses',
         'Building Structure': 'Wood Frame',
-        'WWR': 'Low (<20%)',
-        'Heating System': 'Electric baseboards',
+        'Window-to-Wall-Ratio': 'Low (<20%)',
+        'Heating System': 'Electric Baseboards',
         'DHW System': 'Electric'
     }
     print(select_building_output(input_1, 'building_combinations.csv'))

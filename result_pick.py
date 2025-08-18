@@ -15,25 +15,35 @@ def previous_result_picker(user_input_dict, result_path):
     existing_door_code = ExistingWindowLookup('existing_window_table.csv').get_door_code(user_input_dict)
     previous_wall_rvalue = PreviousWallRValueLookup('wall_rvalue_table.csv').get_r_value(user_input_dict)
 
+    # for the sake of testing
     print(existing_window_code)
+    print(existing_door_code)
+    print(previous_wall_rvalue)
+    
     # the airtightness rate is mock until Maddy shows me something
-    airtightness_rate = "0.15"
+    airtightness_rate = 0.15
 
     # these are the results
     results = pd.read_csv(result_path)
-
     # build mask for matching all parameters
-    mask = (
-        (results['Window Type'] == existing_window_code)) #&
-        #(results['Sliding Door Type'] == existing_door_code) &
-        #(results['Airtightness'] == airtightness_rate) &
-        #(results['Wall R-Value'] == previous_wall_rvalue)
-    #)
+    mask = ((results['Window Type'] == existing_window_code) &
+        (results['Sliding Door Type'] == existing_door_code) &
+        (results['Airtightness'] == airtightness_rate) &
+        (results['Wall R-Value'] == int(previous_wall_rvalue))
+    )
 
     # Find the matched output
-    tedi = results.loc[mask, "Overheating Hours in Worst Suite"]
+    tedi = results.loc[mask, "TEDI kWh/m²/yr"]
+    cedi = results.loc[mask, "CEDI kWh/m²/yr"]
+    teui = results.loc[mask, "TEUI kWh/m²/yr"]
+    heat_hours = results.loc[mask, "Overheating Hours in Worst Suite"]
+    max_temp = results.loc[mask, "Max Temp in Worst Suite (°C)"]
+    utility_cost = results.loc[mask, "Utility Cost ($)"]
+
+    output_list = [tedi, cedi, teui, heat_hours, max_temp, utility_cost]
+
     if not tedi.empty:
-        return tedi.iloc[0]
+        return output_list
     else:
         return None
 
@@ -60,11 +70,11 @@ if __name__ == "__main__":
         'WWR': 'Low (<20%)',
         'Heating System': 'Electric baseboards',
         'DHW System': 'Electric',
-        'Walls': 'Wood',
+        'Walls': '2x4 Wood Frame Walls',
         'Frame Type': 'Vinyl',
-        'Glazing': 'Single',
-        'Airspace': 'n/a',
-        'Thermal Bridging': 'Bad',
+        'Glazing': 'Double Glazing (no low-e coating)',
+        'Airspace': '1/4',
+        'Thermal Bridging Performance': 'Bad TB',
         'Airtightness': 'Bad',
     }
    

@@ -9,10 +9,10 @@ class NewWindowLookup:
         """
         self.df = pd.read_csv(csv_path, dtype=str)
         # Strip whitespace from all relevant columns
-        for col in ['Frame Type', 'Glazing', 'Code']:
+        for col in ['Frame Type', 'Glazing', 'Window Code', 'Door Code']:
             self.df[col] = self.df[col].astype(str).str.strip()
 
-    def get_code(self, user_inputs: Dict[str, str]) -> Optional[str]:
+    def get_window_code(self, user_inputs: Dict[str, str]) -> Optional[str]:
         """
         Looks up the code based on user input dictionary.
         Keys should include 'Frame Type' and 'Glazing'.
@@ -31,7 +31,7 @@ class NewWindowLookup:
             return matches.iloc[0]["Window Code"]
         return None
 
-    def get_code(self, user_inputs: Dict[str, str]) -> Optional[str]:
+    def get_door_code(self, user_inputs: Dict[str, str]) -> Optional[str]:
         """
         Looks up the code based on user input dictionary.
         Keys should include 'Frame Type' and 'Glazing'.
@@ -49,6 +49,21 @@ class NewWindowLookup:
         if not matches.empty:
             return matches.iloc[0]["Door Code"]
         return None
+
+# for testing
+if __name__ == "__main__":
+    lookup = NewWindowLookup("new_window_table.csv")
+    user_inputs = {
+        "Frame Type": "Vinyl",
+        "Airspace": "1/8",
+        "Glazing": "Triple, typical"
+    }
+
+    door_code = lookup.get_window_code(user_inputs)
+    window_code = lookup.get_door_code(user_inputs)
+    print(door_code)
+    print(window_code)
+
 # Example usage:
 # lookup = WindowCodeLookup('window_codes.csv')
 # user_inputs = {

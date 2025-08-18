@@ -51,6 +51,19 @@ class ExistingWindowLookup:
                 return matches.iloc[0]["Door Code"]
             return None
 
+if __name__ == "__main__":
+    lookup = ExistingWindowLookup("existing_window_table.csv")
+    user_inputs = {
+        "Frame Type": "Vinyl",
+        "Airspace": "1/8",
+        "Glazing": "Double Glazing (no low-e coating)"
+    }
+
+    door_code = lookup.get_window_code(user_inputs)
+    window_code = lookup.get_door_code(user_inputs)
+    print(door_code)
+    print(window_code)
+
 # Example usage:
 # lookup = WindowCodeLookup('window_codes.csv')
 # user_inputs = {

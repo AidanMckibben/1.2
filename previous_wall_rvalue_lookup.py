@@ -33,6 +33,17 @@ class PreviousWallRValueLookup:
             return matches.iloc[0]['R-Value']
         return None
 
+if __name__ == "__main__":
+    lookup = PreviousWallRValueLookup("wall_rvalue_table.csv")
+    user_inputs = {
+        "Thermal Bridging Performance": "High TB",
+        "Walls": "2x4 Wood Frame Walls",
+        "Wall Exterior Insulation": "3 in. ext. ins"
+    }
+
+    r_value = lookup.get_r_value(user_inputs)
+    print(r_value)
+
 # Example usage:
 # lookup = WallRValueLookup('wall_rvalues.csv')
 # user_inputs = {
