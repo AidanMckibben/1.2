@@ -62,7 +62,7 @@ if __name__ == "__main__":
     lookup = NewWindowLookup("new_window_table.csv")
     user_inputs = {
         "Retrofit Window Frame": "Vinyl",
-        "Airspace": "1/8",
+        "Glazing Cavity": "1/8",
         "Retrofit Window Glazing": "Triple, typical"
     }
 
