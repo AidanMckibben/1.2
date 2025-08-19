@@ -30,7 +30,8 @@ class NewWallRValueLookup:
 
         if not matches.empty:
             return matches.iloc[0]['R-Value']
-        return None
+        else:
+            raise Exception('New wall R-Value could not be selected')
 
 
 

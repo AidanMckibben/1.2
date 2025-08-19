@@ -1,4 +1,3 @@
-from narwhals.selectors import matches
 import pandas as pd
 from typing import Dict, Optional
 
@@ -33,7 +32,7 @@ class PreviousWallRValueLookup:
         if not matches.empty:
             return matches.iloc[0]['R-Value']
         else:
-            raise ValueError("A wall R-Value was not obtained")
+            raise Exception("A wall R-Value was not obtained")
 
 
 # for testing

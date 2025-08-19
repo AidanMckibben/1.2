@@ -29,7 +29,8 @@ class NewWindowLookup:
 
         if not matches.empty:
             return matches.iloc[0]["Window Code"]
-        return None
+        else:
+            raise Exception('New window code could not be selected')
 
     def get_door_code(self, user_inputs: Dict[str, str]) -> Optional[str]:
         """
@@ -48,7 +49,8 @@ class NewWindowLookup:
 
         if not matches.empty:
             return matches.iloc[0]["Door Code"]
-        return None
+        else:
+            raise Exception('New door code could not be selected')
 
 
 
