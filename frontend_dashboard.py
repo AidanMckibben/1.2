@@ -260,10 +260,10 @@ elif st.session_state["page"] == "Retrofit Info":
     ]
     wall_exterior_insulation_options = [
         "Select...",
-        "None",
-        "3\"",
-        "5\"",
-        "8\""
+        "No ext. ins",
+        "3 in. ext. ins",
+        "5 in. ext. ins",
+        "8 in. ext. ins"
     ]
     roof_upgrade_options = [
         "Select...",
