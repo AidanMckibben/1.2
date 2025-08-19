@@ -108,7 +108,7 @@ if __name__ == "__main__":
     input_1 = {
         'Building Type': 'Townhouses',
         'Building Structure': 'Wood Frame',
-        'Window-to-Wall-Ratio': 'High (>30%)',
+        'Window-to-Wall-Ratio': 'Low (<20%)',
         'Heating System': 'Electric Baseboards',
         'DHW System': 'Electric',
         'Walls': '2x4 studs w/ batt',
