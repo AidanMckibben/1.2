@@ -1,3 +1,4 @@
+from narwhals.selectors import matches
 import pandas as pd
 from typing import Dict, Optional
 
@@ -28,7 +29,7 @@ class PreviousWallRValueLookup:
             (self.df['Walls'] == walls) &
             (self.df['Wall Exterior Insulation'] == ext_ins)
         ]
-
+        print(matches)
         if not matches.empty:
             return matches.iloc[0]['R-Value']
         else:
@@ -43,7 +44,7 @@ if __name__ == "__main__":
         "Walls": "2x4 studs w/ batt",
         "Wall Exterior Insulation": "No ext. ins"
     }
-
+ 
     r_value = lookup.get_rvalue(user_inputs)
     print(r_value)
 
