@@ -1,14 +1,25 @@
-﻿Airtightness,WWR
-Poor,<20%
-Poor,
-Poor,
-Poor,
-Poor,
-Poor,
-Poor,
-Poor,
-Poor,
-Poor,
-Poor,
-Poor,
-Poor,
+﻿Window-to-Wall-Ratio,Airtightness,Wall Exterior Insulation,Leakage Rate
+Low (<20%),Poor,No ext. ins,0.135
+Low (<20%),Poor,3 in. ext. ins,0.09
+Low (<20%),Poor,5 in. ext. ins,0.09
+Low (<20%),Poor,8 in. ext ins,0.09
+Low (<20%),Average,No ext. ins,0.081
+Low (<20%),Average,3 in. ext. ins,0.063
+Low (<20%),Average,5 in. ext. ins,0.063
+Low (<20%),Average,8 in. ext ins,0.063
+Medium (20%<x<30%),Poor,No ext. ins,0.123
+Medium (20%<x<30%),Poor,3 in. ext. ins,0.09
+Medium (20%<x<30%),Poor,5 in. ext. ins,0.09
+Medium (20%<x<30%),Poor,8 in. ext ins,0.09
+Medium (20%<x<30%),Average,No ext. ins,0.081
+Medium (20%<x<30%),Average,3 in. ext. ins,0.063
+Medium (20%<x<30%),Average,5 in. ext. ins,0.063
+Medium (20%<x<30%),Average,8 in. ext ins,0.063
+High (>30%),Poor,No ext. ins,0.123
+High (>30%),Poor,3 in. ext. ins,0.09
+High (>30%),Poor,5 in. ext. ins,0.09
+High (>30%),Poor,8 in. ext ins,0.09
+High (>30%),Average,No ext. ins,0.0738
+High (>30%),Average,3 in. ext. ins,0.063
+High (>30%),Average,5 in. ext. ins,0.063
+High (>30%),Average,8 in. ext ins,0.063

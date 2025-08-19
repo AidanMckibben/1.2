@@ -374,8 +374,15 @@ elif st.session_state["page"] == "Summary":
     if st.button(label="Calculate Energy Savings"):
         user_input_archetype_dict = dict(summary_data[:5])
         st.write(user_input_archetype_dict)
-        st.write(select_building_output(user_input_archetype_dict, 'building_combinations.csv'))
+        archetype = select_building_output(user_input_archetype_dict, 'building_combinations.csv')
+        st.write(archetype)
+        archetype_csv = str(archetype) + '.csv'
 
+        from result_pick import previous_result_picker
+        from result_pick import new_result_picker
+
+        st.write(previous_result_picker(dict(summary_data), archetype_csv))
+        st.write(new_result_picker(dict(summary_data), archetype_csv))
 
     # can debug here
     # st.write(st.session_state)
