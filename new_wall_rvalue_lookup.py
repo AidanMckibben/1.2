@@ -22,6 +22,11 @@ class NewWallRValueLookup:
         walls = user_inputs.get('Walls', '').strip()
         ext_ins = user_inputs.get('Wall Exterior Insulation', '').strip()
 
+        # for debugging
+        print(tb_perf)
+        print(walls)
+        print(ext_ins)
+
         matches = self.df[
             (self.df['Thermal Bridging Performance'] == tb_perf) &
             (self.df['Walls'] == walls) &
@@ -30,8 +35,8 @@ class NewWallRValueLookup:
 
         if not matches.empty:
             return matches.iloc[0]['R-Value']
-        else:
-            raise Exception('New wall R-Value could not be selected')
+        #else:
+            #raise Exception('New wall R-Value could not be selected')
 
 
 
@@ -41,8 +46,8 @@ if __name__ == "__main__":
     lookup = NewWallRValueLookup("wall_rvalue_table.csv")
     user_inputs = {
         'Thermal Bridging Performance': 'High TB',
-        'Walls': '2x4 Wood Frame Walls', 
-        'Wall Exterior Insulation': 'No ext. ins.'
+        'Walls': '2x4 studs w/ batt', 
+        'Wall Exterior Insulation': 'No ext. ins'
     }
 
     new_rvalue = lookup.get_r_value(user_inputs)
