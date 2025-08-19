@@ -100,7 +100,7 @@ if __name__ == "__main__":
         'Walls': 'Interior stud wall w/ batt',
         'Frame Type': 'Aluminum (no thermal break)',
         'Glazing': 'Single Glazing',
-        'Glazing Cavity': 'n/a',
+        'Glazing Cavity': 'none',
         'Thermal Bridging Performance': 'Average TB',
         'Airtightness': 'Average',
         'Retrofit Window Frame': 'Aluminum',

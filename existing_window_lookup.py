@@ -55,7 +55,7 @@ if __name__ == "__main__":
     lookup = ExistingWindowLookup("existing_window_table.csv")
     user_inputs = {
         "Frame Type": "Vinyl",
-        "Glazing Cavity": "n/a",
+        "Glazing Cavity": "none",
         "Glazing": "Single Glazing"
     }
 
