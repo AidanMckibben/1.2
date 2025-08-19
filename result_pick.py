@@ -53,29 +53,37 @@ def new_result_picker(user_input_dict, result_path):
     from new_window_lookup import NewWindowLookup
     from new_wall_rvalue_lookup import NewWallRValueLookup
 
+    # make a dataframe of the results
+    results = pd.read_csv(result_path)
+
     # and we grab all the values that we'll be running in the batch tool
     new_window_code = NewWindowLookup('new_window_table.csv').get_window_code(user_input_dict)
     new_wall_rvalue = NewWallRValueLookup('wall_rvalue_table.csv').get_r_value(user_input_dict)
     new_leakage_rate = AirtightnessLookup('airtightness_table.csv').get_leakage_rate(user_input_dict)
+    if user_input_dict['Roof Upgrade'] == 'Improved':
+        filtered_results = results[results['Roof R-Value'] == 30]
+    else:
+        filtered_results = results[results['Roof R-Value'] != 30]
+
     # for the sake of testing
     print(new_window_code)
     print(new_wall_rvalue)
     print(new_leakage_rate)
 
-    results = pd.read_csv(result_path)
+    
 
-    mask = ((results['Window Type'] == new_window_code) &
-        (results['Airtightness'] == float(new_leakage_rate)) &
-        (results['Wall R-Value'] == float(new_wall_rvalue))
+    mask = ((filtered_results['Window Type'] == new_window_code) &
+        (filtered_results['Airtightness'] == float(new_leakage_rate)) &
+        (filtered_results['Wall R-Value'] == float(new_wall_rvalue))
     )
 
 # Find the matched output
-    tedi = results.loc[mask, "TEDI kWh/m²/yr"]
-    cedi = results.loc[mask, "CEDI kWh/m²/yr"]
-    teui = results.loc[mask, "TEUI kWh/m²/yr"]
-    heat_hours = results.loc[mask, "Overheating Hours in Worst Suite"]
-    max_temp = results.loc[mask, "Max Temp in Worst Suite (°C)"]
-    utility_cost = results.loc[mask, "Utility Cost ($)"]
+    tedi = filtered_results.loc[mask, "TEDI kWh/m²/yr"]
+    cedi = filtered_results.loc[mask, "CEDI kWh/m²/yr"]
+    teui = filtered_results.loc[mask, "TEUI kWh/m²/yr"]
+    heat_hours = filtered_results.loc[mask, "Overheating Hours in Worst Suite"]
+    max_temp = filtered_results.loc[mask, "Max Temp in Worst Suite (°C)"]
+    utility_cost = filtered_results.loc[mask, "Utility Cost ($)"]
 
     output_list = [tedi, cedi, teui, heat_hours, max_temp, utility_cost]
 
@@ -105,7 +113,8 @@ if __name__ == "__main__":
         'Airtightness': 'Average',
         'Retrofit Window Frame': 'Aluminum',
         'Retrofit Window Glazing': 'Double',
-        'Wall Exterior Insulation': 'No ext. ins'
+        'Wall Exterior Insulation': 'No ext. ins',
+        'Roof Upgrade': 'None'
     }
    
     print(input_1)
