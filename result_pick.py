@@ -28,7 +28,7 @@ def previous_result_picker(user_input_dict, result_path):
     # build mask for matching all parameters
     mask = ((results['Window Type'] == existing_window_code) &
         (results['Airtightness'] == previous_leakage_rate) &
-        (results['Wall R-Value'] == int(previous_wall_rvalue))
+        (results['Wall R-Value'] == float(previous_wall_rvalue))
     )
 
     # Find the matched output
@@ -93,18 +93,18 @@ def new_result_picker(user_input_dict, result_path):
 if __name__ == "__main__":
     input_1 = {
         'Building Type': 'More than 6 stories',
-        'Building Structure': 'Wood Frame',
+        'Building Structure': 'Concrete',
         'Window-to-Wall-Ratio': 'High (>30%)',
-        'Heating System': 'Electric baseboards',
-        'DHW System': 'Electric',
+        'Heating System': 'Natural Gas baseboards',
+        'DHW System': 'Natural Gas',
         'Walls': 'Interior stud wall w/ batt',
         'Frame Type': 'Aluminum (no thermal break)',
         'Glazing': 'Single Glazing',
         'Glazing Cavity': 'n/a',
         'Thermal Bridging Performance': 'Average TB',
         'Airtightness': 'Average',
-        'Retrofit Window Frame': 'Fiberglass',
-        'Retrofit Window Glazing': 'Triple, typical',
+        'Retrofit Window Frame': 'Aluminum',
+        'Retrofit Window Glazing': 'Double',
         'Wall Exterior Insulation': 'No ext. ins'
     }
    
