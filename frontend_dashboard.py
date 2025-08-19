@@ -326,7 +326,7 @@ elif st.session_state["page"] == "Summary":
         ["Wall Exterior Insulation", st.session_state.get("retrofit_wall_exterior_insulation", "")],
         ["Roof Upgrade", st.session_state.get("retrofit_roof_upgrade", "")],
     ]
-    df = pd.DataFrame(summary_data, columns=["Dropdown Title", "Selection"])
+    df = pd.DataFrame(summary_data, columns=["Dropdown Title", "Selection"], keep_default_na=False)
     st.table(df)
 
     #List of required keys (including glazing cavity)
