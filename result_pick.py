@@ -1,10 +1,6 @@
 from hmac import new
 import pandas as pd
-
 from airtightness_lookup import AirtightnessLookup
-
-# I need to make a function that takes the dictionary of user inputs and returns the correct result
-# This should use existing_window_lookup.py, new_window_lookup.py, wall_rvalue_lookup.py, and airtightness code (which I have not written yet)
 
 def previous_result_picker(user_input_dict, result_path):
 
@@ -70,7 +66,7 @@ def new_result_picker(user_input_dict, result_path):
 
     mask = ((results['Window Type'] == new_window_code) &
         (results['Airtightness'] == float(new_leakage_rate)) &
-        (results['Wall R-Value'] == int(new_wall_rvalue))
+        (results['Wall R-Value'] == float(new_wall_rvalue))
     )
 
 # Find the matched output
@@ -114,5 +110,5 @@ if __name__ == "__main__":
    
     print(input_1)
 
-    print(previous_result_picker(input_1, 'mock_results.csv'))
-    print(new_result_picker(input_1, 'mock_results.csv'))
+    print(previous_result_picker(input_1, 'Barafield.csv'))
+    print(new_result_picker(input_1, 'Barafield.csv'))
