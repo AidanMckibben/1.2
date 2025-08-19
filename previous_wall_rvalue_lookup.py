@@ -39,9 +39,9 @@ class PreviousWallRValueLookup:
 if __name__ == "__main__":
     lookup = PreviousWallRValueLookup("wall_rvalue_table.csv")
     user_inputs = {
-        "Thermal Bridging Performance": "High TB",
-        "Walls": "Interior stud wall w/ batt",
-        "Wall Exterior Insulation": "8 in. ext. ins"
+        "Thermal Bridging Performance": "Low TB",
+        "Walls": "2x4 studs w/ batt",
+        "Wall Exterior Insulation": "No ext. ins"
     }
 
     r_value = lookup.get_rvalue(user_inputs)

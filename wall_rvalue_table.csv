@@ -1,12 +1,12 @@
 ﻿Thermal Bridging Performance,Walls,Wall Exterior Insulation,R-Value
-High TB,2x4 Wood Frame Walls,No ext. ins,10
-High TB,2x4 Wood Frame Walls,3 in. ext. ins,14
-High TB,2x4 Wood Frame Walls,5 in. ext. ins,18
-High TB,2x4 Wood Frame Walls,8 in. ext ins,24
-High TB,2x6 Wood Frame Walls,No ext. ins,12
-High TB,2x6 Wood Frame Walls,3 in. ext. ins,18
-High TB,2x6 Wood Frame Walls,5 in. ext. ins,22
-High TB,2x6 Wood Frame Walls,8 in. ext ins,26
+High TB,2x4 studs w/ batt,No ext. ins,10
+High TB,2x4 studs w/ batt,3 in. ext. ins,14
+High TB,2x4 studs w/ batt,5 in. ext. ins,18
+High TB,2x4 studs w/ batt,8 in. ext ins,24
+High TB,2x6 studs w/ batt,No ext. ins,12
+High TB,2x6 studs w/ batt,3 in. ext. ins,18
+High TB,2x6 studs w/ batt,5 in. ext. ins,22
+High TB,2x6 studs w/ batt,8 in. ext ins,26
 High TB,Continuous rigid insulation,No ext. ins,5
 High TB,Continuous rigid insulation,3 in. ext. ins,12
 High TB,Continuous rigid insulation,5 in. ext. ins,15
@@ -19,14 +19,14 @@ High TB,Uninsulated,No ext. ins,1
 High TB,Uninsulated,3 in. ext. ins,10
 High TB,Uninsulated,5 in. ext. ins,18
 High TB,Uninsulated,8 in. ext ins,unlikely
-Average TB,2x4 Wood Frame Walls,No ext. ins,10
-Average TB,2x4 Wood Frame Walls,3 in. ext. ins,18
-Average TB,2x4 Wood Frame Walls,5 in. ext. ins,22
-Average TB,2x4 Wood Frame Walls,8 in. ext ins,unlikely
-Average TB,2x6 Wood Frame Walls,No ext. ins,14
-Average TB,2x6 Wood Frame Walls,3 in. ext. ins,22
-Average TB,2x6 Wood Frame Walls,5 in. ext. ins,26
-Average TB,2x6 Wood Frame Walls,8 in. ext ins,unlikely
+Average TB,2x4 studs w/ batt,No ext. ins,10
+Average TB,2x4 studs w/ batt,3 in. ext. ins,18
+Average TB,2x4 studs w/ batt,5 in. ext. ins,22
+Average TB,2x4 studs w/ batt,8 in. ext ins,unlikely
+Average TB,2x6 studs w/ batt,No ext. ins,14
+Average TB,2x6 studs w/ batt,3 in. ext. ins,22
+Average TB,2x6 studs w/ batt,5 in. ext. ins,26
+Average TB,2x6 studs w/ batt,8 in. ext ins,unlikely
 Average TB,Continuous rigid insulation,No ext. ins,7.5
 Average TB,Continuous rigid insulation,3 in. ext. ins,14
 Average TB,Continuous rigid insulation,5 in. ext. ins,18
@@ -39,14 +39,14 @@ Average TB,Uninsulated,No ext. ins,unlikely
 Average TB,Uninsulated,3 in. ext. ins,unlikely
 Average TB,Uninsulated,5 in. ext. ins,unlikely
 Average TB,Uninsulated,8 in. ext ins,unlikely
-Low TB,2x4 Wood Frame Walls,No ext. ins,12
-Low TB,2x4 Wood Frame Walls,3 in. ext. ins,20
-Low TB,2x4 Wood Frame Walls,5 in. ext. ins,26
-Low TB,2x4 Wood Frame Walls,8 in. ext ins,unlikely
-Low TB,2x6 Wood Frame Walls,No ext. ins,unlikely
-Low TB,2x6 Wood Frame Walls,3 in. ext. ins,26
-Low TB,2x6 Wood Frame Walls,5 in. ext. ins,unlikely
-Low TB,2x6 Wood Frame Walls,8 in. ext ins,unlikely
+Low TB,2x4 studs w/ batt,No ext. ins,12
+Low TB,2x4 studs w/ batt,3 in. ext. ins,20
+Low TB,2x4 studs w/ batt,5 in. ext. ins,26
+Low TB,2x4 studs w/ batt,8 in. ext ins,unlikely
+Low TB,2x6 studs w/ batt,No ext. ins,unlikely
+Low TB,2x6 studs w/ batt,3 in. ext. ins,26
+Low TB,2x6 studs w/ batt,5 in. ext. ins,unlikely
+Low TB,2x6 studs w/ batt,8 in. ext ins,unlikely
 Low TB,Continuous rigid insulation,No ext. ins,10
 Low TB,Continuous rigid insulation,3 in. ext. ins,18
 Low TB,Continuous rigid insulation,5 in. ext. ins,unlikely
