@@ -225,7 +225,7 @@ elif st.session_state["page"] == "Assembly Info":
         st.session_state["glazing_cavity"] = "n/a"
 
     thermal_bridging = st.selectbox(
-            "Thermal Bridging",
+            "Thermal Bridging Performance",
             thermal_bridging_options,
             index=thermal_bridging_options.index(get_dropdown_value("thermal_bridging", thermal_bridging_options)),
             key="thermal_bridging_selectbox"
@@ -319,7 +319,7 @@ elif st.session_state["page"] == "Summary":
         ["Frame Type", st.session_state.get("window_door_frame", "")],
         ["Glazing", st.session_state.get("window_glazing", "")],
         ["Glazing Cavity", st.session_state.get("glazing_cavity", "")],
-        ["Thermal Bridging", st.session_state.get("thermal_bridging", "")],
+        ["Thermal Bridging Performance", st.session_state.get("thermal_bridging", "")],
         ["Airtightness", st.session_state.get("airtightness", "")],
         ["Retrofit Window Frame", st.session_state.get("retrofit_window_frame", "")],
         ["Retrofit Window Glazing", st.session_state.get("retrofit_window_glazing", "")],
