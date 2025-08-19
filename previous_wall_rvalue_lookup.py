@@ -31,7 +31,8 @@ class PreviousWallRValueLookup:
 
         if not matches.empty:
             return matches.iloc[0]['R-Value']
-        return None
+        else:
+            raise ValueError("A wall R-Value was not obtained")
 
 
 # for testing
