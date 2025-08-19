@@ -376,12 +376,15 @@ elif st.session_state["page"] == "Summary":
         archetype = select_building_output(user_input_archetype_dict, 'building_combinations.csv')
         st.write(archetype)
         archetype_csv = str(archetype) + '.csv'
+        st.write(archetype_csv)
+        user_input_dict = dict(summary_data)
+        st.write(user_input_dict)
 
         from result_pick import previous_result_picker
         from result_pick import new_result_picker
 
-        st.write(previous_result_picker(dict(summary_data), archetype_csv))
-        st.write(new_result_picker(dict(summary_data), archetype_csv))
+        st.write(previous_result_picker(user_input_dict, archetype_csv))
+        st.write(new_result_picker(user_input_dict, archetype_csv))
 
     # can debug here
     # st.write(st.session_state)
