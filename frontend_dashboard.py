@@ -160,8 +160,8 @@ elif st.session_state["page"] == "Assembly Info":
         "Double (no low-e)",
         "Double (low-e)"
     ]
-    thermal_bridging_options = ["Select...", "Good", "Typical", "Bad"]
-    airtightness_options = ["Select...", "Good", "Typical", "Bad"]
+    thermal_bridging_options = ["Select...", "Low TB", "Average TB", "High TB"]
+    airtightness_options = ["Select...", "Average", "Poor"]
 
     # Specific Logic for Walls
     # Get Building Structure selection from session state if available
@@ -261,9 +261,8 @@ elif st.session_state["page"] == "Retrofit Info":
     wall_exterior_insulation_options = [
         "Select...",
         "None",
-        "2\"",
-        "4\"",
-        "6\"",
+        "3\"",
+        "5\"",
         "8\""
     ]
     roof_upgrade_options = [
