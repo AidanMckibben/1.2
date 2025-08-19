@@ -6,7 +6,7 @@ class ExistingWindowLookup:
         """
         Loads the CSV into a pandas DataFrame for fast lookup.
         """
-        self.df = pd.read_csv(csv_path, dtype=str)
+        self.df = pd.read_csv(csv_path, dtype=str, keep_default_na=False)
         # Strip whitespace from all string columns
         for col in ['Frame Type', 'Glazing Cavity', 'Glazing', 'Window Code', 'Door Code']:
             self.df[col] = self.df[col].astype(str).str.strip()
@@ -43,7 +43,7 @@ class ExistingWindowLookup:
 
             matches = self.df[
                 (self.df['Frame Type'] == frame_type) &
-                (self.df['Glazing Cavity'] == airspace) &
+                (self.df['Glazing Cavity'] == str(airspace)) &
                 (self.df['Glazing'] == glazing)
             ]
 
@@ -55,16 +55,16 @@ if __name__ == "__main__":
     lookup = ExistingWindowLookup("existing_window_table.csv")
     user_inputs = {
         "Frame Type": "Vinyl",
-        "Glazing Cavity": "1/8",
-        "Glazing": "Double Glazing (no low-e coating)"
+        "Glazing Cavity": "n/a",
+        "Glazing": "Single Glazing"
     }
 
     door_code = lookup.get_window_code(user_inputs)
     window_code = lookup.get_door_code(user_inputs)
     print(door_code)
     print(window_code)
-
-# Example usage:
+    
+    
 # lookup = WindowCodeLookup('window_codes.csv')
 # user_inputs = {
 #     'Frame Type': 'Aluminum, no thermal break',

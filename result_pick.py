@@ -92,16 +92,16 @@ def new_result_picker(user_input_dict, result_path):
 # for testing
 if __name__ == "__main__":
     input_1 = {
-        'Building Type': 'Townhouses',
+        'Building Type': 'More than 6 stories',
         'Building Structure': 'Wood Frame',
         'Window-to-Wall-Ratio': 'High (>30%)',
         'Heating System': 'Electric baseboards',
         'DHW System': 'Electric',
-        'Walls': '2x4 Wood Frame Walls',
-        'Frame Type': 'Vinyl',
-        'Glazing': 'Double Glazing (no low-e coating)',
-        'Glazing Cavity': '1/4',
-        'Thermal Bridging Performance': 'Low TB',
+        'Walls': 'Interior stud wall w/ batt',
+        'Frame Type': 'Aluminum (no thermal break)',
+        'Glazing': 'Single Glazing',
+        'Glazing Cavity': 'n/a',
+        'Thermal Bridging Performance': 'Average TB',
         'Airtightness': 'Average',
         'Retrofit Window Frame': 'Fiberglass',
         'Retrofit Window Glazing': 'Triple, typical',
