@@ -213,7 +213,7 @@ elif st.session_state["page"] == "Assembly Info":
 
     # glazing cavity only appears for certain glazing types
     if window_glazing in ["Double (no low-e)", "Double (low-e)"]:
-        glazing_cavity_options = ["Select...", "1/4\"", "1/8\""]
+        glazing_cavity_options = ["Select...", "1/4", "1/8"]
         glazing_cavity = st.selectbox(
             "Glazing Cavity",
             glazing_cavity_options,
