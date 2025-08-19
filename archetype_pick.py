@@ -33,6 +33,7 @@ def select_building_output(user_input, lookup_table_path):
         return None
 
 
+# for testing
 if __name__ == "__main__":
     input_1 = {
         'Building Type': 'Townhouses',

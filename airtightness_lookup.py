@@ -1,7 +1,7 @@
 import pandas as pd
 from typing import Dict, Optional
 
-class Airtightnesslookup:
+class AirtightnessLookup:
     def __init__(self, csv_path: str):
         """
         """
@@ -27,4 +27,15 @@ class Airtightnesslookup:
             return matches.iloc[0]['Leakage Rate']
         return 'Error getting Leakage Rate'
 
-    
+# for testing
+if __name__ == "__main__":
+    lookup = AirtightnessLookup("airtightness_table.csv")
+    input_1 = {
+        'Window-to-Wall-Ratio': 'Low (<20%)',
+        'Airtightness': 'Average',
+        'Wall Exterior Insulation': 'No ext. ins',
+    }
+
+    print(input_1)
+    leakage_rate = lookup.get_leakage_rate(input_1)
+    print(leakage_rate)
