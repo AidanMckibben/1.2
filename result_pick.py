@@ -7,7 +7,10 @@ def previous_result_picker(user_input_dict, result_path):
     # first we grab all the classes that we'll be using
     from existing_window_lookup import ExistingWindowLookup
     from previous_wall_rvalue_lookup import PreviousWallRValueLookup
-
+    
+    # these are the results that have been outputted by our equest runs
+    results = pd.read_csv(result_path)
+    
     # and we grab all the values that we'll be running in the batch tool
     existing_window_code = ExistingWindowLookup('existing_window_table.csv').get_window_code(user_input_dict)
     previous_wall_rvalue = PreviousWallRValueLookup('wall_rvalue_table.csv').get_rvalue(user_input_dict)
@@ -17,27 +20,30 @@ def previous_result_picker(user_input_dict, result_path):
         previous_leakage_rate = 0.09
     else:
         raise ValueError('Airtightness was set as something other than Poor or Average')
+    if user_input_dict['Roof Upgrade'] == 'Improved':
+        filtered_results = results[results['Roof R-Value'] == 30]
+    else:
+        filtered_results = results[results['Roof R-Value'] != 30]
 
     # for the sake of testing
     print(existing_window_code)
     print(previous_wall_rvalue)
     print(previous_leakage_rate)
 
-    # these are the results that have been outputted by our equest runs
-    results = pd.read_csv(result_path)
+    
     # build mask for matching all parameters
-    mask = ((results['Window Type'] == existing_window_code) &
-        (results['Airtightness'] == previous_leakage_rate) &
-        (results['Wall R-Value'] == float(previous_wall_rvalue))
+    mask = ((filtered_results['Window Type'] == existing_window_code) &
+        (filtered_results['Airtightness'] == previous_leakage_rate) &
+        (filtered_results['Wall R-Value'] == float(previous_wall_rvalue))
     )
 
     # Find the matched output
-    tedi = results.loc[mask, "TEDI kWh/m²/yr"]
-    cedi = results.loc[mask, "CEDI kWh/m²/yr"]
-    teui = results.loc[mask, "TEUI kWh/m²/yr"]
-    heat_hours = results.loc[mask, "Overheating Hours in Worst Suite"]
-    max_temp = results.loc[mask, "Max Temp in Worst Suite (°C)"]
-    utility_cost = results.loc[mask, "Utility Cost ($)"]
+    tedi = filtered_results.loc[mask, "TEDI kWh/m²/yr"]
+    cedi = filtered_results.loc[mask, "CEDI kWh/m²/yr"]
+    teui = filtered_results.loc[mask, "TEUI kWh/m²/yr"]
+    heat_hours = filtered_results.loc[mask, "Overheating Hours in Worst Suite"]
+    max_temp = filtered_results.loc[mask, "Max Temp in Worst Suite (°C)"]
+    utility_cost = filtered_results.loc[mask, "Utility Cost ($)"]
 
     output_list = [tedi, cedi, teui, heat_hours, max_temp, utility_cost]
 
@@ -76,7 +82,7 @@ def new_result_picker(user_input_dict, result_path):
         (filtered_results['Airtightness'] == float(new_leakage_rate)) &
         (filtered_results['Wall R-Value'] == float(new_wall_rvalue))
     )
-
+    print(filtered_results['Roof R-Value'])
 # Find the matched output
     tedi = filtered_results.loc[mask, "TEDI kWh/m²/yr"]
     cedi = filtered_results.loc[mask, "CEDI kWh/m²/yr"]
@@ -114,7 +120,7 @@ if __name__ == "__main__":
         'Retrofit Window Frame': 'Aluminum',
         'Retrofit Window Glazing': 'Double',
         'Wall Exterior Insulation': 'No ext. ins',
-        'Roof Upgrade': 'None'
+        'Roof Upgrade': 'Improved'
     }
    
     print(input_1)
