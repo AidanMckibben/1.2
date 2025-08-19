@@ -222,7 +222,7 @@ elif st.session_state["page"] == "Assembly Info":
         )
         st.session_state["glazing_cavity"] = glazing_cavity
     else:
-        st.session_state["glazing_cavity"] = "n/a"
+        st.session_state["glazing_cavity"] = "none"
 
     thermal_bridging = st.selectbox(
             "Thermal Bridging Performance",
@@ -326,7 +326,7 @@ elif st.session_state["page"] == "Summary":
         ["Wall Exterior Insulation", st.session_state.get("retrofit_wall_exterior_insulation", "")],
         ["Roof Upgrade", st.session_state.get("retrofit_roof_upgrade", "")],
     ]
-    df = pd.DataFrame(summary_data, columns=["Dropdown Title", "Selection"], keep_default_na=False)
+    df = pd.DataFrame(summary_data, columns=["Dropdown Title", "Selection"])
     st.table(df)
 
     #List of required keys (including glazing cavity)
