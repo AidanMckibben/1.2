@@ -1,5 +1,5 @@
-from hmac import new
 import pandas as pd
+# import all classes needed from lookup
 from lookup import AirtightnessLookup
 from lookup import ExistingWindowLookup
 from lookup import PreviousWallRValueLookup
@@ -76,7 +76,7 @@ def new_result_picker(user_input_dict, result_path):
         (filtered_results['Wall R-Value'] == float(new_wall_rvalue))
     )
     print(filtered_results['Roof R-Value'])
-# Find the matched output
+    # Find the matched output
     tedi = filtered_results.loc[mask, "TEDI kWh/m²/yr"]
     cedi = filtered_results.loc[mask, "CEDI kWh/m²/yr"]
     teui = filtered_results.loc[mask, "TEUI kWh/m²/yr"]
