@@ -1,12 +1,12 @@
 from hmac import new
 import pandas as pd
-from airtightness_lookup import AirtightnessLookup
+from lookup import AirtightnessLookup
+from lookup import ExistingWindowLookup
+from lookup import PreviousWallRValueLookup
+from lookup import NewWindowLookup
+from lookup import NewWallRValueLookup
 
 def previous_result_picker(user_input_dict, result_path):
-
-    # first we grab all the classes that we'll be using
-    from existing_window_lookup import ExistingWindowLookup
-    from previous_wall_rvalue_lookup import PreviousWallRValueLookup
     
     # these are the results that have been outputted by our equest runs
     results = pd.read_csv(result_path)
@@ -29,7 +29,6 @@ def previous_result_picker(user_input_dict, result_path):
     print(existing_window_code)
     print(previous_wall_rvalue)
     print(previous_leakage_rate)
-
     
     # build mask for matching all parameters
     mask = ((filtered_results['Window Type'] == existing_window_code) &
@@ -55,16 +54,12 @@ def previous_result_picker(user_input_dict, result_path):
 
 def new_result_picker(user_input_dict, result_path):
 
-    # first we grab all the classes that we'll be using
-    from new_window_lookup import NewWindowLookup
-    from new_wall_rvalue_lookup import NewWallRValueLookup
-
     # make a dataframe of the results
     results = pd.read_csv(result_path)
 
     # and we grab all the values that we'll be running in the batch tool
     new_window_code = NewWindowLookup('new_window_table.csv').get_window_code(user_input_dict)
-    new_wall_rvalue = NewWallRValueLookup('wall_rvalue_table.csv').get_r_value(user_input_dict)
+    new_wall_rvalue = NewWallRValueLookup('wall_rvalue_table.csv').get_rvalue(user_input_dict)
     new_leakage_rate = AirtightnessLookup('airtightness_table.csv').get_leakage_rate(user_input_dict)
     if user_input_dict['Roof Upgrade'] == 'Improved':
         filtered_results = results[results['Roof R-Value'] == 30]
@@ -75,8 +70,6 @@ def new_result_picker(user_input_dict, result_path):
     print(new_window_code)
     print(new_wall_rvalue)
     print(new_leakage_rate)
-
-    
 
     mask = ((filtered_results['Window Type'] == new_window_code) &
         (filtered_results['Airtightness'] == float(new_leakage_rate)) &
@@ -108,14 +101,14 @@ if __name__ == "__main__":
     input_1 = {
         'Building Type': 'Townhouses',
         'Building Structure': 'Wood Frame',
-        'Window-to-Wall-Ratio': 'Low (<20%)',
+        'Window-to-Wall-Ratio': 'High (>30%)',
         'Heating System': 'Electric Baseboards',
         'DHW System': 'Electric',
         'Walls': '2x4 studs w/ batt',
         'Frame Type': 'Aluminum (no thermal break)',
         'Glazing': 'Single Glazing',
         'Glazing Cavity': 'none',
-        'Thermal Bridging Performance': 'High TB',
+        'Thermal Bridging Performance': 'Average TB',
         'Airtightness': 'Average',
         'Retrofit Window Frame': 'Aluminum',
         'Retrofit Window Glazing': 'Double',
