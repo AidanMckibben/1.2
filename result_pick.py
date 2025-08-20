@@ -37,12 +37,12 @@ def previous_result_picker(user_input_dict, result_path):
     )
 
     # Find the matched output
-    tedi = filtered_results.loc[mask, "TEDI kWh/m²/yr"]
-    cedi = filtered_results.loc[mask, "CEDI kWh/m²/yr"]
-    teui = filtered_results.loc[mask, "TEUI kWh/m²/yr"]
-    heat_hours = filtered_results.loc[mask, "Overheating Hours in Worst Suite"]
-    max_temp = filtered_results.loc[mask, "Max Temp in Worst Suite (°C)"]
-    utility_cost = filtered_results.loc[mask, "Utility Cost ($)"]
+    tedi = filtered_results.loc[mask, filtered_results.columns[7]]
+    cedi = filtered_results.loc[mask, filtered_results.columns[8]]
+    teui = filtered_results.loc[mask, filtered_results.columns[9]]
+    heat_hours = filtered_results.loc[mask, filtered_results.columns[10]]
+    max_temp = filtered_results.loc[mask, filtered_results.columns[11]]
+    utility_cost = filtered_results.loc[mask, filtered_results.columns[12]]
 
     output_list = [tedi, cedi, teui, heat_hours, max_temp, utility_cost]
 
@@ -77,12 +77,12 @@ def new_result_picker(user_input_dict, result_path):
     )
     print(filtered_results['Roof R-Value'])
     # Find the matched output
-    tedi = filtered_results.loc[mask, "TEDI kWh/m²/yr"]
-    cedi = filtered_results.loc[mask, "CEDI kWh/m²/yr"]
-    teui = filtered_results.loc[mask, "TEUI kWh/m²/yr"]
-    heat_hours = filtered_results.loc[mask, "Overheating Hours in Worst Suite"]
-    max_temp = filtered_results.loc[mask, "Max Temp in Worst Suite (°C)"]
-    utility_cost = filtered_results.loc[mask, "Utility Cost ($)"]
+    tedi = filtered_results.loc[mask, filtered_results.columns[7]]
+    cedi = filtered_results.loc[mask, filtered_results.columns[8]]
+    teui = filtered_results.loc[mask, filtered_results.columns[9]]
+    heat_hours = filtered_results.loc[mask, filtered_results.columns[10]]
+    max_temp = filtered_results.loc[mask, filtered_results.columns[11]]
+    utility_cost = filtered_results.loc[mask, filtered_results.columns[12]]
 
     output_list = [tedi, cedi, teui, heat_hours, max_temp, utility_cost]
 
