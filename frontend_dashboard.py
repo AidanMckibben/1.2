@@ -375,6 +375,8 @@ elif st.session_state["page"] == "Summary":
         st.write(user_input_archetype_dict)
         archetype = select_building_output(user_input_archetype_dict, 'building_combinations.csv')
         st.write(archetype)
+        if archetype == 'not a feasible archetype':
+            raise Exception('Program cannot continue without a feasible archetype')
         archetype_csv = str(archetype) + '.csv'
         st.write(archetype_csv)
         user_input_dict = dict(summary_data)
