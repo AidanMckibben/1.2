@@ -360,7 +360,7 @@ elif st.session_state["page"] == "Summary":
     csv_data = csv_buffer.getvalue()
 
     st.download_button(
-        label="Download CSV",
+        label="Download CSV of Summary",
         data=csv_data,
         file_name="summary.csv",
         mime="text/csv",
@@ -370,23 +370,26 @@ elif st.session_state["page"] == "Summary":
 # managing the energy model dataset
     from archetype_pick import select_building_output
 
-    if st.button(label="Calculate Energy Savings"):
+    if st.button(
+            label="Calculate Energy Savings",
+            disabled=not all_filled
+        ):
         user_input_archetype_dict = dict(summary_data[:5])
         st.write(user_input_archetype_dict)
         archetype = select_building_output(user_input_archetype_dict, 'building_combinations.csv')
         st.write(archetype)
         if archetype == 'not a feasible archetype':
             raise Exception('Program cannot continue without a feasible archetype')
-        archetype_csv = 'Results/' + str(archetype) + '.csv'
-        st.write(archetype_csv)
+        archetype_csv_path = 'Results/' + str(archetype) + '.csv'
+        st.write(archetype_csv_path)
         user_input_dict = dict(summary_data)
         st.write(user_input_dict)
 
         from result_pick import previous_result_picker
         from result_pick import new_result_picker
 
-        st.write(previous_result_picker(user_input_dict, archetype_csv))
-        st.write(new_result_picker(user_input_dict, archetype_csv))
+        st.write(previous_result_picker(user_input_dict, archetype_csv_path))
+        st.write(new_result_picker(user_input_dict, archetype_csv_path))
 
     # can debug here
     # st.write(st.session_state)
