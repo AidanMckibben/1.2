@@ -37,16 +37,16 @@ def previous_result_picker(user_input_dict, result_path):
     )
 
     # Find the matched output
-    tedi = filtered_results.loc[mask, filtered_results.columns[7]]
-    cedi = filtered_results.loc[mask, filtered_results.columns[8]]
-    teui = filtered_results.loc[mask, filtered_results.columns[9]]
-    heat_hours = filtered_results.loc[mask, filtered_results.columns[10]]
-    max_temp = filtered_results.loc[mask, filtered_results.columns[11]]
-    utility_cost = filtered_results.loc[mask, filtered_results.columns[12]]
+    tedi = filtered_results.loc[mask, filtered_results.columns[7]].item()
+    cedi = filtered_results.loc[mask, filtered_results.columns[8]].item()
+    teui = filtered_results.loc[mask, filtered_results.columns[9]].item()
+    heat_hours = filtered_results.loc[mask, filtered_results.columns[10]].item()
+    max_temp = filtered_results.loc[mask, filtered_results.columns[11]].item()
+    utility_cost = filtered_results.loc[mask, filtered_results.columns[12]].item()
 
     output_list = [tedi, cedi, teui, heat_hours, max_temp, utility_cost]
 
-    if not tedi.empty:
+    if tedi != None :
         return output_list
     else:
         return 'Existing result not found'
@@ -77,16 +77,16 @@ def new_result_picker(user_input_dict, result_path):
     )
     print(filtered_results['Roof R-Value'])
     # Find the matched output
-    tedi = filtered_results.loc[mask, filtered_results.columns[7]]
-    cedi = filtered_results.loc[mask, filtered_results.columns[8]]
-    teui = filtered_results.loc[mask, filtered_results.columns[9]]
-    heat_hours = filtered_results.loc[mask, filtered_results.columns[10]]
-    max_temp = filtered_results.loc[mask, filtered_results.columns[11]]
-    utility_cost = filtered_results.loc[mask, filtered_results.columns[12]]
+    tedi = filtered_results.loc[mask, filtered_results.columns[7]].item()
+    cedi = filtered_results.loc[mask, filtered_results.columns[8]].item()
+    teui = filtered_results.loc[mask, filtered_results.columns[9]].item()
+    heat_hours = filtered_results.loc[mask, filtered_results.columns[10]].item()
+    max_temp = filtered_results.loc[mask, filtered_results.columns[11]].item()
+    utility_cost = filtered_results.loc[mask, filtered_results.columns[12]].item()
 
     output_list = [tedi, cedi, teui, heat_hours, max_temp, utility_cost]
 
-    if not tedi.empty:
+    if tedi != None :
         return output_list
     else:
         return "Retrofit result not found"
@@ -118,5 +118,5 @@ if __name__ == "__main__":
    
     print(input_1)
 
-    print(previous_result_picker(input_1, 'Barafield.csv'))
-    print(new_result_picker(input_1, 'Barafield.csv'))
+    print(previous_result_picker(input_1, 'Results/Barafield.csv'))
+    print(new_result_picker(input_1, 'Results/Barafield.csv'))
