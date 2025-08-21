@@ -377,7 +377,7 @@ elif st.session_state["page"] == "Summary":
         st.write(archetype)
         if archetype == 'not a feasible archetype':
             raise Exception('Program cannot continue without a feasible archetype')
-        archetype_csv = str(archetype) + '.csv'
+        archetype_csv = 'Results/' + str(archetype) + '.csv'
         st.write(archetype_csv)
         user_input_dict = dict(summary_data)
         st.write(user_input_dict)
