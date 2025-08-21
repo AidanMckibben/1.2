@@ -393,11 +393,16 @@ elif st.session_state["page"] == "Summary":
         n_teui = new_result_picker(user_input_dict, archetype_csv_path)[2]
         n_utility = new_result_picker(user_input_dict, archetype_csv_path)[5]
 
+        delta_teui = p_teui-n_teui
+        delta_utility = p_utility-n_utility
+
         st.write(p_teui)
         st.write(n_teui)
         st.write(p_utility)
         st.write(n_utility)
 
+        st.write('The Thermal Energy Usage Intensity will decrease by '+ str(delta_teui) + ' kWh/m\u00b2 per year')
+        st.write('The Utility Cost will decrease by $' + str(delta_utility) + ' per year')
 
 
 
