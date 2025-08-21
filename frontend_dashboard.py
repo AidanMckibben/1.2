@@ -395,6 +395,8 @@ elif st.session_state["page"] == "Summary":
 
         st.write(p_teui)
         st.write(n_teui)
+        st.write(p_utility)
+        st.write(n_utility)
 
 
 
