@@ -400,7 +400,16 @@ elif st.session_state["page"] == "Summary":
         percent_teui = round(delta_teui/p_teui*100, 2)
         percent_utility = round(delta_utility/p_utility*100, 2)
 
-        st.markdown("**This is the TEDI**")
+        data = {
+            "Thermal Energy Usage Intensity (kWh/m²) per year": [p_teui, n_teui, f"{percent_teui}%"],
+            "Utility Cost ($) per year": [p_utility, n_utility, f"{percent_utility}%"]
+        }
+        index = ["Previous Building", "Retrofit Building", "Savings"]
+
+        df_energy_savings = pd.DataFrame(data, index=index)
+
+        st.table(df_energy_savings)
+
 
         st.write('The Thermal Energy Usage Intensity will decrease by '+ str(delta_teui) + ' kWh/m\u00b2 per year, or ' + str(percent_teui) + '% per year')
         st.write('The Utility Cost will decrease by $' + str(delta_utility) + ' per year, or ' + str(percent_utility) + '% per year')
