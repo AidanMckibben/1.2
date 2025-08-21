@@ -306,7 +306,7 @@ elif st.session_state["page"] == "Retrofit Info":
 
 elif st.session_state["page"] == "Summary":
     st.title("Summary of Selections")
-    st.write("Below is a summary of all your selections. This is the data that will be entered into the calibrated energy model")
+    st.write("Below is a summary of all your selections. This is the data that will be entered into the calibrated energy model. When all fields are filled successfully, energy savings can be calculated.")
 
     import pandas as pd
     summary_data = [
@@ -388,8 +388,15 @@ elif st.session_state["page"] == "Summary":
         from result_pick import previous_result_picker
         from result_pick import new_result_picker
 
-        st.write(previous_result_picker(user_input_dict, archetype_csv_path))
-        st.write(new_result_picker(user_input_dict, archetype_csv_path))
+        p_tei = previous_result_picker(user_input_dict, archetype_csv_path)[2]
+        n_teui = new_result_picker(user_input_dict, archetype_csv_path)[2]
+
+        st.write(p_teui)
+        st.write(n_teui)
+
+
+
+
 
     # can debug here
     # st.write(st.session_state)
