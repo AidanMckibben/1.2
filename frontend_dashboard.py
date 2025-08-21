@@ -388,7 +388,7 @@ elif st.session_state["page"] == "Summary":
         from result_pick import previous_result_picker
         from result_pick import new_result_picker
 
-        p_tei = previous_result_picker(user_input_dict, archetype_csv_path)[2]
+        p_teui = previous_result_picker(user_input_dict, archetype_csv_path)[2]
         n_teui = new_result_picker(user_input_dict, archetype_csv_path)[2]
 
         st.write(p_teui)
