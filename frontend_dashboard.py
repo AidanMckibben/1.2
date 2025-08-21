@@ -400,8 +400,8 @@ elif st.session_state["page"] == "Summary":
         percent_teui = round(delta_teui/p_teui*100, 2)
         percent_utility = round(delta_teui/p_teui*100, 2)
 
-        st.write('The Thermal Energy Usage Intensity will decrease by '+ str(delta_teui) + ' kWh/m\u00b2 per year')
-        st.write('The Utility Cost will decrease by $' + str(delta_utility) + ' per year')
+        st.write('The Thermal Energy Usage Intensity will decrease by '+ str(delta_teui) + ' kWh/m\u00b2 per year, or ' + str(percent_teui) + '% per year')
+        st.write('The Utility Cost will decrease by $' + str(delta_utility) + ' per year, or ' + str(percent_utility) + '% per year')
 
 
 
