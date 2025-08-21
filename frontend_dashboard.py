@@ -377,20 +377,17 @@ elif st.session_state["page"] == "Summary":
         user_input_archetype_dict = dict(summary_data[:5])
         st.write(user_input_archetype_dict)
         archetype = select_building_output(user_input_archetype_dict, 'building_combinations.csv')
-        st.write(archetype)
+
+        st.write('The tool is pulling from ' + archetype + ' as the building archetype')
+
         if archetype == 'not a feasible archetype':
             raise Exception('Program cannot continue without a feasible archetype')
+
         archetype_csv_path = 'Results/' + str(archetype) + '.csv'
-        st.write(archetype_csv_path)
         user_input_dict = dict(summary_data)
-        st.write(user_input_dict)
 
         from result_pick import previous_result_picker
         from result_pick import new_result_picker
-
-
-        st.write(previous_result_picker(user_input_dict, archetype_csv_path))
-        st.write(type(previous_result_picker(user_input_dict, archetype_csv_path)))
 
         p_teui = previous_result_picker(user_input_dict, archetype_csv_path)[2]
         p_utility = previous_result_picker(user_input_dict, archetype_csv_path)[5]
@@ -399,11 +396,6 @@ elif st.session_state["page"] == "Summary":
 
         delta_teui = p_teui-n_teui
         delta_utility = p_utility-n_utility
-
-        st.write(p_teui)
-        st.write(n_teui)
-        st.write(p_utility)
-        st.write(n_utility)
 
         st.write('The Thermal Energy Usage Intensity will decrease by '+ str(delta_teui) + ' kWh/m\u00b2 per year')
         st.write('The Utility Cost will decrease by $' + str(delta_utility) + ' per year')
