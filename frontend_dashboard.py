@@ -375,7 +375,6 @@ elif st.session_state["page"] == "Summary":
             disabled=not all_filled
         ):
         user_input_archetype_dict = dict(summary_data[:5])
-        st.write(user_input_archetype_dict)
         archetype = select_building_output(user_input_archetype_dict, 'building_combinations.csv')
 
         st.write('The tool is pulling from ' + archetype + ' as the building archetype')
