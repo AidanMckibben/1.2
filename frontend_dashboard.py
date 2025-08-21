@@ -390,6 +390,7 @@ elif st.session_state["page"] == "Summary":
 
 
         st.write(previous_result_picker(user_input_dict, archetype_csv_path))
+        st.write(type(previous_result_picker(user_input_dict, archetype_csv_path)))
 
         p_teui = previous_result_picker(user_input_dict, archetype_csv_path)(2)
         p_utility = previous_result_picker(user_input_dict, archetype_csv_path)(5)
