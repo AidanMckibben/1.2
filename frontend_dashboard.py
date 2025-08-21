@@ -388,10 +388,10 @@ elif st.session_state["page"] == "Summary":
         from result_pick import previous_result_picker
         from result_pick import new_result_picker
 
-        p_teui = previous_result_picker(user_input_dict, archetype_csv_path)[2]
-        p_utility = previous_result_picker(user_input_dict, archetype_csv_path)[5]
-        n_teui = new_result_picker(user_input_dict, archetype_csv_path)[2]
-        n_utility = new_result_picker(user_input_dict, archetype_csv_path)[5]
+        p_teui = previous_result_picker(user_input_dict, archetype_csv_path)(2)
+        p_utility = previous_result_picker(user_input_dict, archetype_csv_path)(5)
+        n_teui = new_result_picker(user_input_dict, archetype_csv_path)(2)
+        n_utility = new_result_picker(user_input_dict, archetype_csv_path)(5)
 
         delta_teui = p_teui-n_teui
         delta_utility = p_utility-n_utility
