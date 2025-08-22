@@ -151,7 +151,7 @@ elif st.session_state["page"] == "Assembly Info":
         "Select...",
         "Aluminum (no thermal break)",
         "Aluminum (w/ thermal break)",
-        "Fiberglass",
+        "Wood",
         "Vinyl"
     ]
     assembly_window_glazing_options = [
@@ -353,6 +353,67 @@ elif st.session_state["page"] == "Summary":
         for k in required_keys
     )
 
+# managing the energy model dataset
+    from archetype_pick import select_building_output
+
+    # Function to check if archetype is feasible before calculation
+    def check_archetype_feasibility():
+        """Check if the current building info selections will lead to a feasible archetype"""
+        try:
+            # Get building info from session state
+            building_info = {
+                "Building Type": st.session_state.get("building_type", ""),
+                "Building Structure": st.session_state.get("building_structure", ""),
+                "Window-to-Wall-Ratio": st.session_state.get("window_to_wall_ratio", ""),
+                "Heating System": st.session_state.get("heating_system", ""),
+                "DHW System": st.session_state.get("dhw_system", "")
+            }
+            
+            # Check if all building info fields are filled
+            if all(value and value != "Select..." for value in building_info.values()):
+                # Try to get the archetype
+                archetype = select_building_output(building_info, 'building_combinations.csv')
+                return archetype != "not a feasible archetype", archetype
+            return True, None  # Not all fields filled yet
+        except Exception:
+            return False, "not a feasible archetype"
+
+    # Function to check if wall R-value combination is valid
+    def check_wall_rvalue_feasibility():
+        """Check if the current wall assembly combination leads to a valid R-value"""
+        try:
+            # Get wall assembly info from session state
+            thermal_bridging = st.session_state.get("thermal_bridging", "")
+            walls = st.session_state.get("assembly_walls", "")
+            wall_exterior_insulation = st.session_state.get("retrofit_wall_exterior_insulation", "")
+            
+            # Check if all wall assembly fields are filled
+            if all(value and value not in ["", "Select...", "Please select building structure first"] for value in [thermal_bridging, walls, wall_exterior_insulation]):
+                # Load wall R-value table
+                import pandas as pd
+                wall_table = pd.read_csv('wall_rvalue_table.csv')
+                
+                # Find matching R-value
+                mask = (
+                    (wall_table['Thermal Bridging Performance'] == thermal_bridging) &
+                    (wall_table['Walls'] == walls) &
+                    (wall_table['Wall Exterior Insulation'] == wall_exterior_insulation)
+                )
+                
+                result = wall_table.loc[mask, 'R-Value']
+                if not result.empty:
+                    r_value = result.iloc[0]
+                    return r_value != "unlikely", r_value
+                return False, "not found"
+            return True, None  # Not all fields filled yet
+        except Exception:
+            return False, "error"
+
+    # Check archetype feasibility
+    is_feasible, archetype_result = check_archetype_feasibility()
+    
+    # Check wall R-value feasibility
+    wall_feasible, wall_r_value = check_wall_rvalue_feasibility()
     # CSV export logic
     import io
     csv_buffer = io.StringIO()
@@ -364,15 +425,34 @@ elif st.session_state["page"] == "Summary":
         data=csv_data,
         file_name="summary.csv",
         mime="text/csv",
-        disabled=not all_filled
+        disabled=not all_filled or (not is_feasible and archetype_result == "not a feasible archetype") or (not wall_feasible and wall_r_value == "unlikely")
     )
-
-# managing the energy model dataset
-    from archetype_pick import select_building_output
+    
+    # Show warnings for infeasible combinations
+    calculate_disabled = not all_filled
+    
+    if not is_feasible and archetype_result == "not a feasible archetype":
+        st.error("⚠️ **The archetype that has been specified by the Building Info is not feasible**")
+        st.write("The combination of Building Type, Building Structure, Window-to-Wall-Ratio, Heating System, and DHW System you have selected does not have a corresponding energy model archetype. Please adjust your Building Info selections.")
+        calculate_disabled = True
+    
+    if not wall_feasible and wall_r_value == "unlikely":
+        st.error("⚠️ **The retrofit insulation strategy with the given wall assembly and thermal bridging performance is unlikely**")
+        st.write("The combination of Thermal Bridging Performance, Walls, and Wall Exterior Insulation you have selected is unlikely to occur. Please adjust your Assembly Info or Retrofit Info selections.")
+        calculate_disabled = True
+    
+    # Show success messages for feasible combinations
+    if archetype_result and archetype_result != "not a feasible archetype":
+        st.success(f"✅ **Archetype identified**: {archetype_result}")
+        st.write(f"The building configuration will use the **{archetype_result}** archetype for energy calculations.")
+    
+    if wall_feasible and wall_r_value and wall_r_value != "unlikely":
+        st.success(f"✅ **Wall R-Value**: {wall_r_value}")
+        st.write(f"The wall assembly will achieve an R-value of **{wall_r_value}**.")
 
     if st.button(
             label="Calculate Energy Savings",
-            disabled=not all_filled
+            disabled=calculate_disabled
         ):
         user_input_archetype_dict = dict(summary_data[:5])
         archetype = select_building_output(user_input_archetype_dict, 'building_combinations.csv')
