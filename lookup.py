@@ -213,7 +213,7 @@ if __name__ == "__main__":
         'Airtightness': 'Average',
         'Retrofit Window Frame': 'Aluminum',
         'Retrofit Window Glazing': 'Double',
-        'Wall Exterior Insulation': 'No ext. ins',
+        'Wall Exterior Insulation': '8 in. ext. ins',
         'Roof Upgrade': 'None'
     }
 
