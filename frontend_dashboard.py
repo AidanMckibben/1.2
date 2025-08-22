@@ -151,7 +151,7 @@ elif st.session_state["page"] == "Assembly Info":
         "Select...",
         "Aluminum (no thermal break)",
         "Aluminum (w/ thermal break)",
-        "Fiberglass",
+        "Wood",
         "Vinyl"
     ]
     assembly_window_glazing_options = [
