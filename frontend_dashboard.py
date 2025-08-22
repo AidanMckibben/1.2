@@ -439,7 +439,7 @@ elif st.session_state["page"] == "Summary":
     
     if not wall_feasible and wall_r_value == "unlikely":
         st.error("⚠️ **The retrofit insulation strategy with the given wall assembly and thermal bridging performance is unlikely**")
-        st.write("The combination of Thermal Bridging Performance, Walls, and Wall Exterior Insulation you have selected leads to an unlikely R-value. Please adjust your Assembly Info or Retrofit Info selections.")
+        st.write("The combination of Thermal Bridging Performance, Walls, and Wall Exterior Insulation you have selected is unlikely to occur. Please adjust your Assembly Info or Retrofit Info selections.")
         calculate_disabled = True
     
     # Show success messages for feasible combinations
