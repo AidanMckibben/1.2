@@ -414,7 +414,6 @@ elif st.session_state["page"] == "Summary":
     
     # Check wall R-value feasibility
     wall_feasible, wall_r_value = check_wall_rvalue_feasibility()
-
     # CSV export logic
     import io
     csv_buffer = io.StringIO()
