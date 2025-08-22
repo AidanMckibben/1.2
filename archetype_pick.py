@@ -29,7 +29,7 @@ def select_building_output(user_input, lookup_table_path):
     result = lookup.loc[mask, 'Archetype Model']
     if not result.empty:
         return result.iloc[0]
-    elif result == 'not a fesible archetype':
+    elif result == 'not a feasible archetype':
         raise Exception('Program cannot continue without a feasible archetype')
     else:
         return None
