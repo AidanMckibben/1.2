@@ -353,34 +353,6 @@ elif st.session_state["page"] == "Summary":
         for k in required_keys
     )
 
-# managing the energy model dataset
-    from archetype_pick import select_building_output
-
-    # Function to check if archetype is feasible before calculation
-    def check_archetype_feasibility():
-        """Check if the current building info selections will lead to a feasible archetype"""
-        try:
-            # Get building info from session state
-            building_info = {
-                "Building Type": st.session_state.get("building_type", ""),
-                "Building Structure": st.session_state.get("building_structure", ""),
-                "Window-to-Wall-Ratio": st.session_state.get("window_to_wall_ratio", ""),
-                "Heating System": st.session_state.get("heating_system", ""),
-                "DHW System": st.session_state.get("dhw_system", "")
-            }
-            
-            # Check if all building info fields are filled
-            if all(value and value != "Select..." for value in building_info.values()):
-                # Try to get the archetype
-                archetype = select_building_output(building_info, 'building_combinations.csv')
-                return archetype != "not a feasible archetype", archetype
-            return True, None  # Not all fields filled yet
-        except Exception:
-            return False, "not a feasible archetype"
-
-    # Check archetype feasibility
-    is_feasible, archetype_result = check_archetype_feasibility()
-
     # CSV export logic
     import io
     csv_buffer = io.StringIO()
@@ -392,26 +364,15 @@ elif st.session_state["page"] == "Summary":
         data=csv_data,
         file_name="summary.csv",
         mime="text/csv",
-        disabled=not all_filled or (not is_feasible and archetype_result == "not a feasible archetype")
+        disabled=not all_filled
     )
-    
-    # Show warning if archetype is not feasible
-    if not is_feasible and archetype_result == "not a feasible archetype":
-        st.error("⚠️ **The archetype that has been specified by the Building Info is not feasible**")
-        st.write("The combination of Building Type, Building Structure, Window-to-Wall-Ratio, Heating System, and DHW System you have selected does not have a corresponding energy model archetype. Please adjust your Building Info selections.")
-        # Disable the calculate button when archetype is not feasible
-        calculate_disabled = True
-    elif archetype_result and archetype_result != "not a feasible archetype":
-        # Show which archetype would be used
-        st.success(f"✅ **Archetype identified**: {archetype_result}")
-        st.write(f"The building configuration will use the **{archetype_result}** archetype for energy calculations.")
-        calculate_disabled = not all_filled
-    else:
-        calculate_disabled = not all_filled
+
+# managing the energy model dataset
+    from archetype_pick import select_building_output
 
     if st.button(
             label="Calculate Energy Savings",
-            disabled=calculate_disabled
+            disabled=not all_filled
         ):
         user_input_archetype_dict = dict(summary_data[:5])
         archetype = select_building_output(user_input_archetype_dict, 'building_combinations.csv')
